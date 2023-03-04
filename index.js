@@ -3,7 +3,7 @@ const passport = require("passport");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const electivedata = require("../studentelectiveform/elective.model");
+const electivedata = require("./studentelectiveform/elective.model");
 const router = express.Router();
 const serverless = require("serverless-http");
 const Url = "mongodb://localhost:27017/student";
@@ -19,7 +19,7 @@ try {
 }
 
 const app = express();
-const studentcontroller = require("../studentelectiveform/student.controller");
+
 const exp = require("constants");
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: false }));
