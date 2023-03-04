@@ -21,21 +21,15 @@ try {
 const app = express();
 
 const exp = require("constants");
+const studentcontroller = require("./studentelectiveform/student.controller");
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: false }));
 app.use(express.json());
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(cors({ credentials: true, origin: true, exposedHeaders: "*" }));
-router.get("/get/elective", async (req, res) => {
-  let get_electivedata = await electivedata.find();
-  //   let arr = [];
-  //   for (let i = 0; i < get_electivedata.length; i++) {
-  //     arr.push(get_electivedata[i].Elective);
-  //   }
-  res.render("index", { electives: get_electivedata });
-});
-app.use("/netlify/functions/student", router);
+
+app.use("/student", studentcontroller);
 app.listen(port, () => {
   console.log("Server Started");
 });
