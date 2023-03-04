@@ -8,22 +8,28 @@ const get_student = async (req, res) => {
 
 const create_student = async (req, res) => {
   try {
-    let student_body = new data({
-      Name: req.body.Name,
-      RollNo: req.body.Rollno,
-      Elective: req.body.Elective,
-    });
-    await student_body.save();
     let elective_find = await electivedata.findOne({
       Elective: req.body.Elective,
     });
+    if (elective_find.Seats != 0) {
+      let student_body = new data({
+        Name: req.body.Name,
+        RollNo: req.body.Rollno,
+        Elective: req.body.Elective,
+      });
+      await student_body.save();
 
-    const id = elective_find._id;
-    let student_update = await electivedata.findByIdAndUpdate(id, {
-      Seats: elective_find.Seats - 1,
-    });
+      const id = elective_find._id;
+      let student_update = await electivedata.findByIdAndUpdate(id, {
+        Seats: elective_find.Seats - 1,
+      });
 
-    res.redirect("get/elective");
+      res.redirect("get/elective");
+    } else {
+      res.status(500).json({
+        Error: "pls check the department you have selected has seats left",
+      });
+    }
   } catch (error) {
     res.status(500).json({
       message: error.message,
@@ -44,10 +50,6 @@ const create_elective = async (req, res) => {
 };
 const get_elective = async (req, res) => {
   let get_electivedata = await electivedata.find();
-  //   let arr = [];
-  //   for (let i = 0; i < get_electivedata.length; i++) {
-  //     arr.push(get_electivedata[i].Elective);
-  //   }
   res.render("index", { electives: get_electivedata });
 };
 const getone_elective = async (req, res) => {
