@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Students List Page</title>
+    <link
+      href="//db.onlinewebfonts.com/c/23fe921c6f711d75677bd6b351ac9418?family=Daimler+CS"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta16/dist/css/tabler.min.css"
+    />
+    <link rel="stylesheet" href="/css/index.css" />
+  </head>
+
+  <body>
+    <div class="parent-wrapper">
+      <main>
+        <!--  ASSESSMENT LISTING TABLE  -->
+        <div class="p-3 mx-auto layout-wrapper">
+          <div class="table-responsive mt-3 listing-table-container">
+            <table class="table table-vcenter">
+              <thead>
+                <tr>
+                  <th class="fs-4">Name</th>
+                  <th class="fs-4">Roll No</th>
+                  <th class="fs-4">Selected Department</th>
+                </tr>
+              </thead>
+              <%students.forEach((blog)=> {%>
+              <tbody>
+                <tr>
+                  <td><%=blog.Name%></td>
+                  <td class="text-muted fs-3"><%=blog.RollNo%></td>
+                  <td class="text-muted fs-3"><%=blog.Elective%></td>
+                </tr>
+                <% })%>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@tabler/core@1.0.0-beta16/dist/js/tabler.min.js"
+      async
+      defer
+    ></script>
+  </body>
+</html>
