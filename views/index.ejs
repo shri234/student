@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="main.js"></script>
+  </head>
+  <body>
+    <h1>Student Registration Form</h1>
+
+    <form action="/student/create" method="POST" class="ui form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="Name" /><br /><br />
+      <label for="rollno">Roll No:</label>
+      <input type="text" id="rollno" name="Rollno" /><br /><br />
+      <label for="dept">Department:</label>
+      <select id="dept" name="Elective">
+        <option value="NCD">NCD</option>
+        <option value="ManagementofMedicalEmergencies">
+          Management of Medical Emergencies (incl hands on workshop)
+        </option>
+        <option value="ManagementofpoisoningBites">
+          Management of poisoning & Bites (incl hands on workshop)
+        </option>
+        <option value="DHAVGCPW">
+          Dietary History, Anthropometry, Vitals & Growth chart plotting-
+          workshop
+        </option>
+        <option value="ENCW">Essential Newborn Care – workshop</option>
+        <option value="DHOTODM">
+          Dermatophytes – hands on training on diagnosis & management
+        </option>
+        <option value="FIOSHOTODM">
+          Fungal Infection of skin – hands on training on diagnosis & management
+        </option>
+        <option value="Deaddiction">Deaddiction</option>
+        <option value="ChildPsychiatry">Child Psychiatry</option>
+        <option value="OperationTheatreManagementProtocolWorkshop">
+          Operation Theatre Management Protocol (including Disinfection,
+          Sterilisation, Table & instrument setting)- Workshop
+        </option>
+        <option value="EmergencyTRIAGEmanagementofsurgicalcases">
+          Emergency TRIAGE management of surgical cases (including Acute
+          abdomen)
+        </option>
+        <option value="Woundmanagementhandsontrainingondiagnosismanagement">
+          Wound management (including diabetic foot, postop wound)- hands on
+          training on diagnosis & management
+        </option>
+        <option value="OpenFracturemanagementWorkshop">
+          Open Fracture management - Workshop
+        </option>
+        <option value="SpinecareWorkshop">Spine care - Workshop</option>
+        <option value="Multimodalityimagingtechniquesworkshop">
+          Multimodality imaging techniques (including Xray, contrast, USG, CT,
+          MRI, PET Scan,) -workshop
+        </option>
+        <option value="InterpretationofchestXraysWorkshop">
+          Interpretation of chest X-rays-Workshop
+        </option>
+        <option value="RadiobiologyRadioPhysicsChemotherapy">
+          Radio biology, Radio Physics & Chemotherapy
+        </option>
+        <option value="Anaestheticmanagementofhigh">
+          Anaesthetic management of high-risk cases
+        </option>
+        <option value="CPRintubationcentralvenouscannulationVentilatorWorkshop">
+          CPR, intubation, central venous cannulation & Ventilator - Workshop
+        </option>
+        <option value="Cathlabworkshop">Cathlab- workshop</option>
+        <option value="Hemodialysisworkshop">Hemodialysis- workshop</option>
+        <option value="Renalcalculihandsontrainingondiagnosismanagement">
+          Renal calculi - hands on training on diagnosis & management
+        </option>
+        <option value="MaxillofacialProsthesisWorkshop">
+          Maxillofacial Prosthesis - Workshop
+        </option>
+        <option value="Strokehandsontrainingondiagnosismanagement">
+          Stroke-- hands on training on diagnosis & management
+        </option>
+        <option value="NeurotraumaWorkshopondiagnosismanagement">
+          Neuro trauma (including head injury & spinal injury) - Workshop on
+          diagnosis & management
+        </option>
+        <option value="OrthosisProsthesis">Orthosis & Prosthesis</option>
+        <option value="HighRiskObstetricsworkshop">
+          High Risk Obstetrics -workshop
+        </option>
+        <option value="MaternalFetalMedicine">Maternal Fetal Medicine</option>
+        <option value="GynaecOncologyhandsontrainingondiagnosismanagement">
+          Gynaec Oncology (incl Ca cervix) - hands on training on diagnosis &
+          management
+        </option>
+        <option value="CodeBlueEmergencyTRIAGEmanagement">
+          Code Blue - Emergency TRIAGE management
+        </option>
+        <option value="CPRworkshop">CPR workshop (adult & child)</option>
+        <option value="BronchoscopyWorkshop">
+          Bronchoscopy-Workshop
+        </option></select
+      ><br /><br />
+      <div class="col d-flex justify-content-end mt-4">
+        <button class="btn text-white bg-primary-custom rounded-3">
+          Submit
+        </button>
+      </div>
+    </form>
+    <table>
+      <thead>
+        <tr>
+          <th>Department</th>
+          <th>Available Seats</th>
+        </tr>
+      </thead>
+      <%electives.forEach((blog)=> {%>
+      <tbody id="availableSeatsTableBody">
+        <tr data-dept="NCD">
+          <td><%=blog.Elective%></td>
+          <td><%=blog.Seats%></td>
+        </tr>
+      </tbody>
+      <% })%>
+    </table>
+  </body>
+</html>
