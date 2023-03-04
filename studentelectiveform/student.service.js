@@ -3,7 +3,7 @@ const data = require("./student.model");
 const electivedata = require("./elective.model");
 const get_student = async (req, res) => {
   let student_data = await data.find();
-  res.render("index", { students: student_data });
+  res.render("listpage", { students: student_data });
 };
 
 const create_student = async (req, res) => {
