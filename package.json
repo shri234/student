@@ -1,0 +1,53 @@
+{
+  "name": "email",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "build": "./node_modules/.bin/netlify-lambda build src"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1247.0",
+    "axios": "^1.2.0",
+    "bcrypt": "^5.1.0",
+    "body-parser": "^1.20.1",
+    "camaro": "^6.2.0",
+    "cors": "^2.8.5",
+    "crypto-js": "^4.1.1",
+    "csvtojson": "^2.0.10",
+    "dotenv": "^16.0.3",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-xml-bodyparser": "^0.3.0",
+    "forever": "^0.14.2",
+    "googleapis": "^110.0.0",
+    "handlebars": "^4.7.7",
+    "hbs": "^4.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.4",
+    "mongodb": "^4.10.0",
+    "mongoose": "^6.6.5",
+    "multer": "^1.4.5-lts.1",
+    "netlify-lambda": "^2.0.16",
+    "node-cron": "^3.0.2",
+    "nodemailer": "^6.8.0",
+    "nodemon": "^2.0.20",
+    "otp-generator": "^4.0.0",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.0",
+    "password-validator": "^5.3.0",
+    "serverless-http": "^3.1.1",
+    "two-step-auth": "^1.1.2",
+    "utils": "^0.3.1",
+    "xlsx": "^0.18.5",
+    "xml": "^1.0.1",
+    "xml-js": "^1.6.11",
+    "xml2js": "^0.4.23"
+  },
+  "devDependencies": {
+    "aes256": "^1.1.0"
+  }
+}
