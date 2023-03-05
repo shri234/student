@@ -24,7 +24,7 @@ const create_student = async (req, res) => {
         Seats: elective_find.Seats - 1,
       });
 
-      res.redirect("get/elective");
+      res.render("successpage");
     } else {
       res.status(500).json({
         Error: "pls check the department you have selected has seats left",
