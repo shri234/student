@@ -6,7 +6,7 @@ const bodyParser = require("body-parser");
 const electivedata = require("./studentelectiveform/elective.model");
 const router = express.Router();
 const serverless = require("serverless-http");
-const Url = "mongodb+srv://userdb:sri0406@cluster0.57rqq.mongodb.net/student";
+const Url = "mongodb+srv://userdb:sri0406@cluster0.57rqq.mongodb.net/student?directConnection=true";
 mongoose.connect(Url, { useNewUrlParser: true });
 const port = 3000;
 const con = mongoose.connection;
