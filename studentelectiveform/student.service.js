@@ -11,7 +11,7 @@ const create_student = async (req, res) => {
     let elective_find = await electivedata.findOne({
       Elective: req.body.Elective,
     });
-    if (elective_find.Seats != 0) {
+    if (elective_find.Seats > 0) {
       let student_body = new data({
         Name: req.body.Name,
         RollNo: req.body.Rollno,
