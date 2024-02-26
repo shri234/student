@@ -11,6 +11,15 @@ const create_student = async (req, res) => {
     let elective_find = await electivedata.findOne({
       Elective: req.body.Elective,
     });
+    let rollno_find=await data.find({
+      RollNo:req.body.Rollno
+    })
+    if(rollno_find.length>0){
+      res.status(500).json({
+        Error: "You have already submitted please don't try again",
+      });
+    }
+    else{
     if (elective_find.Seats > 0) {
       let student_body = new data({
         Name: req.body.Name,
@@ -18,7 +27,6 @@ const create_student = async (req, res) => {
         Elective: req.body.Elective,
       });
       await student_body.save();
-
       const id = elective_find._id;
       let student_update = await electivedata.findByIdAndUpdate(id, {
         Seats: elective_find.Seats - 1,
@@ -30,6 +38,7 @@ const create_student = async (req, res) => {
         Error: "pls check the department you have selected has seats left",
       });
     }
+  }
   } catch (error) {
     res.status(500).json({
       message: error.message,
